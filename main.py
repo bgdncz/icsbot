@@ -10,7 +10,7 @@ from telegram.ext import Updater, CommandHandler, CallbackContext
 
 TOKEN = ""
 
-START_MSG = "Hi! You can use this bot to quickly generate calendar invite files for your events. Just make sure to follow the proper format as in the following examples:\n\nOur Amazing Event 03.05.2021 09:20 15:00 gmt+3\nOur Amazing Event 3/5/2021 9:20 15:20 GMT our favorite cafe\nOur Online Protest 3.5.2021 12:20 13:30 GMT-5 zoom-location\n\nYour location can be anything (ex. a zoom link) and is optional, but you should follow the right order: title date start time end time timezone location. Feel free to add me to groups for maximum utility."
+START_MSG = "Hi\! To generate calendar invite files for your events, make sure you follow the proper format as in the following examples:\n\n/invite Our Amazing Event 03\.05\.2021 09:20 15:00 gmt\+3\n/invite Our Amazing Event 3/5/2021 9:20 15:20 GMT our favorite cafe\n/invite Our Online Protest 3\.5\.2021 12:20 13:30 GMT\-5 zoom\-location\n\nYour location can be anything \(ex\. a zoom link\) and is optional, but you should follow the right order: *title date start time end time timezone location*\.\nFeel free to add me to groups for maximum utility\."
 ABOUT_MSG = "I was created by @boghison. The code is available at https://github.com/boghison/icsbot"
 FORMAT_MSG = "It seems like you provided info in the wrong format. Please check your message and retry."
 ERR_MSG = "Sorry, something went wrong."
@@ -31,7 +31,7 @@ def norm_tz(tz):
 
 
 def start(update: Update, _: CallbackContext) -> None:
-    update.message.reply_text(START_MSG)
+    update.message.reply_markdown_v2(START_MSG)
 
 
 def about(update: Update, _: CallbackContext) -> None:
